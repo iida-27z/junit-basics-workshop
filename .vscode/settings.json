@@ -1,0 +1,42 @@
+{
+    "cSpell.words": [
+        "assertj",
+        "CEINTL",
+        "dearmor",
+        "gitmessage",
+        "jacoco",
+        "keyrings",
+        "mhutchie",
+        "mvnw",
+        "nodesource",
+        "nodistro",
+        "temurin",
+        "vscjava"
+    ],
+    "git.blame.statusBarItem.enabled": true,
+    "chat.agentFilesLocations": {
+        ".github/agents": true,
+        ".claude/agents": true,
+        "~/.copilot/agents": true,
+        ".agents/agents": true
+    },
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true,
+        ".claude/rules": true,
+        "~/.copilot/instructions": true,
+        "~/.claude/rules": true,
+        ".agents/instructions": true
+    },
+    "chat.promptFilesLocations": {
+        ".github/prompts": true,
+        ".agents/prompts": true
+    },
+    "chat.agentSkillsLocations": {
+        ".github/skills": true,
+        ".agents/skills": true,
+        ".claude/skills": true,
+        "~/.copilot/skills": true,
+        "~/.agents/skills": true,
+        "~/.claude/skills": true
+    }
+}

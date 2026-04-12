@@ -1,0 +1,28 @@
+name: '機能の提案や要望'
+description: '機能の追加や改善の要望はこちらから'
+title: '[Request]: '
+labels: ['enhancement']
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: '提案・要望'
+      description: 'ここに実装してほしい機能や、改善してほしい点を簡潔に記載してください'
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: '背景'
+      description: 'なぜその機能が必要なのか、現状どんなことで困っているかを記載してください'
+    validations:
+      required: true
+
+  - type: textarea
+    id: related
+    attributes:
+      label: '関連'
+      description: '関連するIssueや、他サービスの参考URLなどがあれば記載してください（任意）'
+    validations:
+      required: false

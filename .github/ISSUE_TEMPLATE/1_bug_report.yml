@@ -1,0 +1,64 @@
+name: 'バグの報告'
+description: '不具合やエラーの報告はこちらから'
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: '概要'
+      description: 'どのような問題が発生しているか、簡潔に教えてください。'
+      placeholder: |
+        例：〇〇画面で✕✕ボタンをクリックすると、△△のエラーが表示される。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: '再現手順'
+      description: '不具合が発生するまでの手順を箇条書きで教えてください。'
+      placeholder: |
+        1. 〇〇画面を開く
+        2. ✕✕ボタンをクリックする
+        3. △△のエラーが表示される
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: '期待される挙動'
+      description: '本来、どのような正しい動きをするべきだったかを記述してください'
+      placeholder: |
+        例：〇〇画面で✕✕ボタンをクリックすると、△△の画面が表示される。
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: '実際の挙動・エラーログ'
+      description: '発生した問題のある挙動や、エラーメッセージを貼り付けてください（任意）'
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: '動作環境'
+      description: 'バグを確認した環境があれば教えてください。（任意）'
+      placeholder: |
+        - OS: [例: macOS / Windows / iOS]
+        - ブラウザ/アプリ: [例: Chrome / Safari]
+        - バージョン・環境: [例: v1.2.0 / ステージング環境]
+    validations:
+      required: false
+
+  - type: textarea
+    id: other_notes
+    attributes:
+      label: 'その他の事項'
+      description: '関連する既存のIssueやPRのリンク、その他補足したい情報があれば自由に記載してください（任意）'
+    validations:
+      required: false

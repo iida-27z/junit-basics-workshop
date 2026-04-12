@@ -1,0 +1,13 @@
+name: 'ドキュメントの修正・追加'
+description: 'ドキュメントの修正や追加ははこちらから'
+title: '[Docs]: '
+labels: ['documentation']
+body:
+  - type: textarea
+    id: documentation-change
+    attributes:
+      label: '修正・追加したい内容'
+      description: 'どのドキュメント（READMEなど）の、どの部分をどのように変更したいか記述してください。'
+      placeholder: '例：README.mdの〇〇というURLがリンク切れしているので、✕✕に変更してほしいです。'
+    validations:
+      required: true

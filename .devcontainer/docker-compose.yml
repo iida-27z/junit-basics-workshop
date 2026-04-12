@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: ./.devcontainer/docker/java/Dockerfile
+    tty: true
+    ports:
+      - 8080:8080
+    volumes:
+      - ./../:/workspace/app
+      
