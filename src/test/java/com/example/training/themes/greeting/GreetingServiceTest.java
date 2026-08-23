@@ -1,8 +1,7 @@
 package com.example.training.themes.greeting;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -34,7 +33,6 @@ class GreetingServiceTest {
     }
     
     @Test
-    @Disabled("このアノテーションはテストを無効化します。削除かコメントアウトして実行してください。")
     void nullの場合はゲストと挨拶される() {
         // Arrange（準備）
         GreetingService service = new GreetingService();
@@ -53,22 +51,44 @@ class GreetingServiceTest {
     // =================================================================
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 空文字の場合はゲストと挨拶される() {
-        // TODO: 空文字 "" を渡した場合のテストを実装してください
-        // ヒント: assertEquals("こんにちは、ゲストさん！", service.greet(""));
+        // Arrange（準備）
+        GreetingService service = new GreetingService();
+        String name = "";
+
+        // Act（実行）
+        String result = service.greet(name);
+
+        // Assert（検証）
+        String expected = "こんにちは、ゲストさん！";
+        assertEquals(expected, result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void スペースのみの場合はゲストと挨拶される() {
-        // TODO: スペースのみの文字列 "   " を渡した場合のテストを実装してください
+        // Arrange（準備）
+        GreetingService service = new GreetingService();
+        String name = "   ";
+
+        // Act（実行）
+        String result = service.greet(name);
+
+        // Assert（検証）
+        String expected = "こんにちは、ゲストさん！";
+        assertEquals(expected, result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 前後にスペースがある名前は前後のスペースが取り除かれる() {
-        // TODO: " 太郎 " のように前後にスペースがある名前を渡した場合、
-        //       「こんにちは、太郎さん！」が返されることを検証してください
+        // Arrange（準備）
+        GreetingService service = new GreetingService();
+        String name = " 太郎 ";
+
+        // Act（実行）
+        String result = service.greet(name);
+
+        // Assert（検証）
+        String expected = "こんにちは、太郎さん！";
+        assertEquals(expected, result);
     }
 }
