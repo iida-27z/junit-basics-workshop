@@ -1,9 +1,10 @@
 package com.example.training.themes.password;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -45,81 +46,147 @@ class PasswordServiceTest {
     // ================================================================
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_パスワードが空文字の場合は例外が投げられる() {
-        // TODO: 空文字のパスワードで IllegalArgumentException を検証
+        // arrange
+        String password = "";
+
+        // act & assert
+        assertThrows(IllegalArgumentException.class, () -> service.isStrong(password));
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_パスワードがスペースを含む場合は例外が投げられる() {
-        // TODO: スペースを含むパスワードで IllegalArgumentException を検証
+        // arrange
+        String password = "Ab1! xyz";
+
+        // act & assert
+        assertThrows(IllegalArgumentException.class, () -> service.isStrong(password));
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_パスワードがnullの場合は例外が投げられる() {
-        // TODO: null を渡して IllegalArgumentException を検証
+        // arrange
+        String password = null;
+
+        // act & assert
+        assertThrows(IllegalArgumentException.class, () -> service.isStrong(password));
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_パスワードが制御文字を含む場合は例外が投げられる() {
-        // TODO: タブ文字 "\b" を含むパスワードで IllegalArgumentException を検証
+        // arrange
+        String password = "Ab1!\bxyz";
+
+        // act & assert
+        assertThrows(IllegalArgumentException.class, () -> service.isStrong(password));
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_パスワードが7文字以下なら弱い() {
-        // TODO: 境界値テスト。
+        // arrange
+        String password = "Ab1!xyz";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_英小文字が含まれないパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "AB1!XYZ@";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_英大文字が含まれないパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "ab1!xyz@";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_数字が含まれないパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "Abc!xyZ@";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_記号が含まれないパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "Ab1xyzCD";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_英小文字のみのパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "abcdefgh";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_英大文字のみのパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "ABCDEFGH";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_数字のみのパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "12345678";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 異常系_記号のみのパスワードは弱い() {
-        // TODO: ここにテストを追加。
+        // arrange
+        String password = "!@#$%^&*";
+
+        // act
+        boolean result = service.isStrong(password);
+
+        // assert
+        assertFalse(result);
     }
 
 }
