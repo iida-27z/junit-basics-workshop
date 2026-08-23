@@ -1,8 +1,8 @@
 package com.example.training.themes.bmi;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -50,32 +50,65 @@ class BmiServiceTest {
     // ================================================================
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
-    void 体重が0の場合は例外が投げられる() {
-        // TODO: 体重に 0 を渡して IllegalArgumentException が投げられることを検証
+    void 体重が0以下の場合は例外が投げられる() {
+        // Arrange
+        BmiService service = new BmiService();
+        double height = 170.0;
+        double weight = 0.0;
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            service.calculate(height, weight);
+        });
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 身長が負の値の場合は例外が投げられる() {
-        // TODO: 身長に負の値を渡した場合の例外テスト
+        // Arrange
+        BmiService service = new BmiService();
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            service.calculate(-170.0, 65.0);
+        });
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 体重が負の値の場合は例外が投げられる() {
-        // TODO: 体重に負の値を渡した場合の例外テスト
+        // Arrange
+        BmiService service = new BmiService();
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            service.calculate(170.0, -65.0);
+        });
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 身長150cm体重50kgの場合() {
-        // TODO: BMI = 50 / (1.5 * 1.5) ≈ 22.22 を delta 付きで検証
+        // Arrange
+        BmiService service = new BmiService();
+        double height = 150.0;
+        double weight = 50.0;
+
+        // Act
+        double bmi = service.calculate(height, weight);
+
+        // Assert
+        assertEquals(22.22, bmi, 0.01);
     }
 
     @Test
-    @Disabled("このアノテーションはテストを無効化します。実装後は削除かコメントアウトしてください。")
     void 身長180cm体重100kgの場合() {
-        // TODO: BMI = 100 / (1.8 * 1.8) ≈ 30.86 を delta 付きで検証
+        // Arrange
+        BmiService service = new BmiService();
+        double height = 180.0;
+        double weight = 100.0;
+
+        // Act
+        double bmi = service.calculate(height, weight);
+
+        // Assert
+        assertEquals(30.86, bmi, 0.01);
     }
 }
