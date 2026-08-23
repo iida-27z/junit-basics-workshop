@@ -44,9 +44,10 @@ public class EraService {
 
         EraInfo era = findEra(date);
         int year = date.getYear() - era.startDate().getYear() + 1;
+        String yearLabel = (year == 1) ? "元" : String.valueOf(year);
 
-        return String.format("%s%d年%02d月%02d日",
-                era.name(), year,
+        return String.format("%s%s年%02d月%02d日",
+            era.name(), yearLabel,
                 date.getMonthValue(), date.getDayOfMonth());
     }
 
