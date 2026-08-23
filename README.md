@@ -3,6 +3,7 @@
 ![GitHub Repo](https://img.shields.io/badge/github-repo-blue?logo=github)
 ![Java Version](https://img.shields.io/badge/Java-25-orange)
 ![JUnit](https://img.shields.io/badge/Test-JUnit6-green)
+![CI](https://github.com/iida-27z/junit-basics-workshop/actions/workflows/ci.yml/badge.svg?branch=main)
 
 ## 概要
 本プロジェクトは、テストコードの基礎を学びたい人を対象とした「JUnit」のハンズオン研修リポジトリです。
