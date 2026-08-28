@@ -1,4 +1,4 @@
-FROM maven:3.9.16-eclipse-temurin-25-noble
+FROM maven:3-eclipse-temurin-26-noble
 
 ENV TZ=Asia/Tokyo
 
